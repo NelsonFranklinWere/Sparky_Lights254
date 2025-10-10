@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Collections - Sparky_Lights254 | Kenya's Premium Decorative & Event Lighting</title>
+    <title>Collections - Spark_Lights254 | Kenya's Premium Decorative & Event Lighting</title>
     <meta name="description" content="Browse our full collection of premium decorative and event lighting in Nairobi, Kenya. Fairy lights, chandeliers, wall lamps, outdoor lights and more. Fast delivery & 24/7 support.">
     <meta name="keywords" content="decorative lights Kenya, event lighting Nairobi, fairy lights Kenya, home decor lights Kenya, lighting solutions Nairobi, chandeliers Kenya, outdoor lighting Nairobi">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Collections - Sparky_Lights254 | Kenya's Premium Lighting">
+    <meta property="og:title" content="Collections - Spark_Lights254 | Kenya's Premium Lighting">
     <meta property="og:description" content="Explore our premium lighting collection. Fairy lights, chandeliers, wall lamps & more. Nairobi delivery.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80">
-    <meta property="og:url" content="https://sparkylights254.store/collections.html">
+    <meta property="og:url" content="https://sparklights254.co.ke/collection.html">
     <meta property="og:type" content="website">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Collections - Sparky_Lights254">
+    <meta name="twitter:title" content="Collections - Spark_Lights254">
     <meta name="twitter:description" content="Premium decorative & event lighting in Nairobi, Kenya. Shop our full collection.">
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80">
 
-    <link rel="canonical" href="https://sparkylights254.co.ke/collections.html">
+    <link rel="canonical" href="https://sparklights254.co.ke/collection.html">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -307,6 +307,19 @@
             background-color: var(--light-gray);
             background-size: cover;
             background-position: center;
+            position: relative;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--primary-pink);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
         }
 
         .product-info {
@@ -564,14 +577,14 @@
         <div class="container">
             <nav class="navbar">
                 <div class="logo">
-                    <h1>Spark<span>Lights</span>254</h1>
+                    <h1>Sparky<span>Lights</span>254</h1>
                 </div>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="collections.html" class="active">Collections</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="index.html#gallery">Gallery</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
                 <div class="mobile-menu">
                     <i class="fas fa-bars"></i>
@@ -639,13 +652,13 @@
                     <h3>Quick Links</h3>
                     <a href="index.html">Home</a>
                     <a href="collections.html">Collections</a>
-                    <a href="index.html#about">About Us</a>
-                    <a href="index.html#gallery">Gallery</a>
-                    <a href="index.html#contact">Contact</a>
+                    <a href="about.html">About Us</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="contact.html">Contact</a>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Sparky_Lights254. All rights reserved.</p>
+                <p>&copy; 2023 Sparky_Lights254. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -667,21 +680,238 @@
             navLinks.classList.toggle('active');
         });
 
-        // Sample lights data
+        // Sample lights data with image URLs
         const lights = [
-            {id: 1, name: "Golden Fairy Lights", category: "fairy", price: 1800, description: "Warm golden fairy lights perfect for cozy spaces", image: "wow1.jpg", badge: "Popular"},
-            {id: 2, name: "Pink Crystal Chandelier", category: "chandelier", price: 12500, description: "Elegant pink crystal chandelier for luxurious spaces", image: "super1.jpg", badge: "Luxury"},
-            {id: 3, name: "Warm LED String Lights", category: "fairy", price: 2200, description: "Energy-efficient warm LED string lights", image: "round3.jpg", badge: "Eco-Friendly"},
-            {id: 4, name: "Modern Table Lamp", category: "lamp", price: 3500, description: "Sleek modern table lamp with adjustable brightness", image: "round2.jpg", badge: "Modern"},
-            {id: 5, name: "Outdoor Garden Lights", category: "outdoor", price: 4800, description: "Weather-resistant outdoor garden lighting", image: "out1.jpg", badge: "Outdoor"},
-            {id: 6, name: "Event Marquee Lights", category: "event", price: 15000, description: "Professional event marquee lighting setup", image: "round1.jpg", badge: "Professional"},
-            {id: 7, name: "Vintage Wall Sconce", category: "lamp", price: 3200, description: "Vintage-style wall sconce with warm glow", image: "number2.png", badge: "Vintage"},
-            {id: 8, name: "Crystal Pendant Light", category: "chandelier", price: 9800, description: "Elegant crystal pendant light for dining areas", image: "number2.png", badge: "Elegant"},
-            {id: 9, name: "Color Changing Bulbs", category: "fairy", price: 2500, description: "Smart color changing bulbs with remote control", image: "round.jpg", badge: "Smart"},
-            {id: 10, name: "Solar Pathway Lights", category: "outdoor", price: 4200, description: "Solar-powered pathway lights for gardens", image: "kitchen.png", badge: "Solar"},
-            {id: 11, name: "LED Strip Lights", category: "fairy", price: 1900, description: "Flexible LED strip lights for creative installations", image: "dinning.png", badge: "Flexible"},
-            {id: 12, name: "Event Uplighting", category: "event", price: 12000, description: "Professional event uplighting for venues", image: "yellow.jpg", badge: "Professional"}
-        ];
+            {id: 1, name: "Golden Round Chandelier", category: "fairy", price: 18500, description: "Warm golden fairy lights perfect for cozy spaces", image: "wow1.jpg", badge: "Popular", imageUrl: "https://nelsonfranklinwere.github.io/Sparky_Lights254/wow1.jpg"},
+            {id: 2, name: "Wall Lights", category: "chandelier", price: 4500, description: "Elegant pink crystal chandelier for luxurious spaces", image: "super1.jpg", badge: "Luxury", imageUrl: "https://nelsonfranklinwere.github.io/Sparky_Lights254/super1.jpg"},
+            {id: 3, name: "Round Chandelier", category: "fairy", price: 8500, description: "Energy-efficient warm LED string lights", image: "round3.jpg", badge: "Eco-Friendly", imageUrl: "https://nelsonfranklinwere.github.io/Sparky_Lights254/round3.jpg"},
+            {id: 4, name: "Modern Dinning", category: "lamp", price: 9500, description: "Sleek modern Dinning lamp with adjustable brightness", image: "round2.jpg", badge: "Modern", imageUrl: "https://nelsonfranklinwere.github.io/Sparky_Lights254/round2.jpg"},
+            {id: 5, name: "Modern Outdoor Wall", category: "outdoor", price: 5400, description: "Weather-resistant outdoor, inclusive of bulbs", image: "out1.jpg", badge: "Outdoor", imageUrl: "https://nelsonfranklinwere.github.io/Sparky_Lights254/out1.jpg"},
+            {id: 6, name: "Gold Crystal Chandelier", category: "event", price: 13500, description: "Professional event marquee lighting setup", image: "round1.jpg", badge: "Professional", imageUrl: "https://nelsonfranklinwere.github.io/Sparky_Lights254/round1.jpg"},
+            {id: 7, name: "Tri Colur Wall Lights", category: "lamp", price: 2500, description: "Vintage-style wall sconce with warm glow", image: "number2.png", badge: "Vintage", imageUrl: "https://nelsonfranklinwere.github.io/Sparky_Lights254/number2.png"},
+           // {id: 8, name: "Crystal Pendant Light", category: "chandelier", price: 9800, description: "Elegant crystal pendant light for dining areas", image: "number2.png", badge: "Elegant", imageUrl: "https://nelsonfranklinwere.github.io/Sparky_Lights254/number2.png"},
+            {id: 9, name: "Glass Pendants", category: "fairy", price: 7500, description: "Smart color Blending perfectly in your workspace", image: "round.jpg", badge: "Smart", imageUrl: "https://nelsonfranklinwere.github.io/Sparky_Lights254/round.jpg"},
+            {id: 10, name: "Counter Top", category: "outdoor", price: 2500, description: "elevate your counter Tops lights ", image: "kitchen.png", badge: "Solar", imageUrl: "https://nelsonfranklinwere.github.io/Sparky_Lights254/kitchen.png"},
+            {id: 11, name: "LED Strip Lights", category: "fairy", price: 1900, description: "Flexible LED strip lights for creative installations", image: "dinning.png", badge: "Flexible", imageUrl: "https://nelsonfranklinwere.github.io/Sparky_Lights254/dinning.png"},
+            {id: 12, name: "Black Pendants", category: "event", price: 2500, description: "Professional black pendants", image: "yellow.jpg", badge: "Professional", imageUrl: "https://nelsonfranklinwere.github.io/Sparky_Lights254/yellow.jpg"},
+            // Round Collection
+// {id: 13, name: "Classic Round Pendant", category: "chandelier", price: 6500, description: "Classic round pendant light with modern appeal", image: "round.jpg", badge: "Classic"},
+// {id: 14, name: "Round Ceiling Fixture", category: "chandelier", price: 7200, description: "Elegant round ceiling fixture for any room", image: "round1.jpg", badge: "Elegant"},
+// {id: 15, name: "Round Table Lamp", category: "lamp", price: 3800, description: "Stylish round table lamp with warm glow", image: "round2.jpg", badge: "Stylish"},
+// {id: 16, name: "Round Wall Sconce", category: "lamp", price: 2900, description: "Modern round wall sconce for ambient lighting", image: "round3.jpg", badge: "Modern"},
+
+// Number Series
+{id: 17, name: "Sisal Pendants", category: "lamp", price: 2000, description: "Special numbered lighting for events and celebrations", image: "number1.jpg", badge: "Special"},
+// {id: 18, name: "Number 2 Display Light", category: "event", price: 9200, description: "Premium numbered display lighting for special occasions", image: "number2.png", badge: "Premium"},
+{id: 19, name: "Smoky 3 in One Pendants", category: "event", price: 9500, description: "Festive numbered lighting for celebrations", image: "number3.jpg", badge: "Festive"},
+
+// Screenshot Collection - Product Showcases
+// {id: 20, name: "Product Showcase 1", category: "fairy", price: 2100, description: "Beautiful fairy lights showcased in our gallery", image: "Screenshot_20251008_134407 (1).jpg", badge: "Showcase"},
+{id: 21, name: "Product Showcase 2", category: "chandelier", price: 11800, description: "Luxurious chandelier display from our collection", image: "Screenshot_20251008_134500 (1).jpg", badge: "Luxury"},
+{id: 22, name: "Amber Glass 3in One", category: "lamp", price: 9000, description: "Modern lamp design from our premium range", image: "Screenshot_20251008_134524 (1).jpg", badge: "Premium"},
+{id: 23, name: "Straight Line Smokey Glass", category: "outdoor", price: 8500, description: "Outdoor lighting solution for any space", image: "Screenshot_20251008_134642 (1).jpg", badge: "Outdoor"},
+{id: 24, name: "White Pendants", category: "event", price: 2500, description: "Professional event lighting setup", image: "Screenshot_20251008_134652 (1).jpg", badge: "Professional"},
+// {id: 25, name: "Product Showcase 6", category: "fairy", price: 1950, description: "Elegant fairy lights for home decoration", image: "Screenshot_20251008_134708 (2).jpg", badge: "Elegant"},
+// {id: 26, name: "Product Showcase 7", category: "chandelier", price: 13200, description: "Grand chandelier perfect for dining rooms", image: "Screenshot_20251008_134719 (1).jpg", badge: "Grand"},
+{id: 27, name: "500mm Crystal Chandeliers", category: "lamp", price: 13500, description: "Contemporary lamp design with modern features", image: "Screenshot_20251008_134753 (1).jpg", badge: "Contemporary"},
+{id: 28, name: "3 in One Pendants", category: "outdoor", price: 6500, description: "Weather-resistant outdoor lighting fixture", image: "Screenshot_20251008_134802 (1).jpg", badge: "Weather-Resistant"},
+{id: 29, name: "3 in one Pendants", category: "event", price: 9000, description: "Stunning event lighting for special occasions", image: "Screenshot_20251008_134810 (1).jpg", badge: "Stunning"},
+//{id: 30, name: "Product Showcase 11", category: "fairy", price: 2300, description: "Colorful fairy lights for festive decoration", image: "Screenshot_20251008_134900 (1).jpg", badge: "Colorful"},
+//{id: 31, name: "Product Showcase 12", category: "chandelier", price: 10500, description: "Elegant chandelier with crystal accents", image: "Screenshot_20251008_134910 (1).jpg", badge: "Crystal"},
+{id: 32, name: "3 in One Pendants", category: "lamp", price: 7500, description: "Sleek table lamp with adjustable features", image: "Screenshot_20251008_135108 (1).jpg", badge: "Sleek"},
+{id: 33, name: "Modern Wall Lights With Two Edison", category: "outdoor", price: 2500, description: "Garden lighting solution for outdoor spaces", image: "Screenshot_20251008_135142 (1).jpg", badge: "Garden"},
+{id: 34, name: "Product Showcase 15", category: "event", price: 15800, description: "Premium event lighting for venues", image: "Screenshot_20251008_135721 (1).jpg", badge: "Premium"},
+{id: 35, name: "Single Pendant Lights", category: "fairy", price: 3500, description: "Warm fairy lights for cozy atmospheres", image: "Screenshot_20251008_135745 (1).jpg", badge: "Warm"},
+{id: 36, name: "Single Pendant Lights", category: "chandelier", price: 2500, description: "Modern chandelier with LED technology", image: "Screenshot_20251008_135800 (1).jpg", badge: "LED"},
+//{id: 37, name: "Product Showcase 18", category: "lamp", price: 3400, description: "Minimalist lamp design for modern homes", image: "Screenshot_20251008_135838 (1).jpg", badge: "Minimalist"},
+{id: 38, name: "Golden Lights Oval", category: "outdoor", price: 18500, description: "Solar-powered outdoor lighting fixture", image: "Screenshot_20251008_135838 (2).jpg", badge: "Solar-Powered"},
+{id: 39, name: "Low ceiling lights", category: "event", price: 8500, description: "Dynamic event lighting with color effects", image: "Screenshot_20251008_135854 (1).jpg", badge: "Dynamic"},
+{id: 40, name: "Modern Wall Lights", category: "fairy", price: 4500, description: "Twinkling fairy lights for magical ambiance", image: "Screenshot_20251008_135911 (1).jpg", badge: "Twinkling"},
+{id: 41, name: "Golden Tri Ceiling Lights", category: "chandelier", price: 2999, description: "Traditional chandelier with modern twist", image: "Screenshot_20251008_135927 (1).jpg", badge: "Traditional"},
+{id: 42, name: "5 Bulbs Chandelier", category: "lamp", price: 11500, description: "Artistic lamp design for creative spaces", image: "Screenshot_20251008_140005 (1).jpg", badge: "Artistic"},
+{id: 43, name: "5 Bulbs Chandelier", category: "outdoor", price: 11500, description: "High-performance outdoor lighting", image: "Screenshot_20251008_140017 (1).jpg", badge: "High-Performance"},
+{id: 44, name: "Antique 5bulbs Chandelier", category: "chandelier", price: 11500, description: "Professional event lighting system", image: "Screenshot_20251008_140034 (1).jpg", badge: "Professional"},
+{id: 45, name: "Antique 5 Bublbs Chandelier", category: "chandelier", price: 11500, description: "Delicate fairy lights for intimate spaces", image: "Screenshot_20251008_140054 (1).jpg", badge: "Delicate"},
+{id: 46, name: "Modern Out Door Wall", category: "outdoor", price: 2500, description: "Exquisite chandelier with premium materials", image: "Screenshot_20251008_140106 (1).jpg", badge: "Exquisite"},
+{id: 47, name: "Indoor OutDoor Motor Sensor", category: "outdoor", price: 1500, description: "Innovative lamp with smart features", image: "Screenshot_20251008_140117 (1).jpg", badge: "Smart"},
+{id: 48, name: "Double wall lights", category: "outdoor", price: 2500, description: "Energy-efficient outdoor lighting", image: "Screenshot_20251008_140133 (1).jpg", badge: "Energy-Efficient"},
+{id: 49, name: "Gold Crystal Wall Lights", category: "outdoor", price: 10500, description: "Spectacular event lighting for grand occasions", image: "Screenshot_20251008_140144 (1).jpg", badge: "Spectacular"},
+{id: 50, name: "Rechargeable Frame Lights", category: "lamp", price: 5500, description: "Romantic fairy lights for special moments", image: "Screenshot_20251008_140156 (1).jpg", badge: "Romantic"},
+{id: 51, name: "Decorative Modern Chandelier", category: "chandelier", price: 9500, description: "Contemporary chandelier with clean lines", image: "Screenshot_20251008_140230 (1).jpg", badge: "Contemporary"},
+{id: 52, name: "Modern Corridor Lights", category: "lamp", price: 6850, description: "Versatile lamp suitable for any room", image: "Screenshot_20251008_141020 (1).jpg", badge: "Versatile"},
+{id: 53, name: "Gold and Black Lights", category: "lamp", price: 5500, description: "Durable outdoor lighting for all weather", image: "Screenshot_20251008_141104 (1).jpg", badge: "Durable"},
+{id: 54, name: "Ceiling Lights", category: "lamp", price: 9500, description: "Luxury event lighting for upscale venues", image: "Screenshot_20251008_141119 (1).jpg", badge: "Luxury"},
+{id: 55, name: "Hall way ceiling Lights", category: "fairy", price: 6500, description: "Festive fairy lights for celebrations", image: "Screenshot_20251008_141155 (1).jpg", badge: "Festive"},
+{id: 56, name: "Modern Ceiling Lights", category: "chandelier", price: 13500, description: "Ornate chandelier with intricate details", image: "Screenshot_20251008_141204 (1).jpg", badge: "Ornate"},
+{id: 57, name: "White pendant Lights", category: "lamp", price: 2500, description: "Functional lamp with beautiful design", image: "Screenshot_20251008_141232 (1).jpg", badge: "Functional"},
+{id: 58, name: "Modern Ceiling Lights", category: "outdoor", price: 15000, description: "Bright outdoor lighting for security", image: "Screenshot_20251008_141249 (1).jpg", badge: "Security"},
+{id: 59, name: "Timeless Wall Lights", category: "event", price: 3500, description: "Creative event lighting solutions", image: "Screenshot_20251008_141313 (1).jpg", badge: "Creative"},
+// {id: 60, name: "Product Showcase 41", category: "fairy", price: 2280, description: "Vibrant fairy lights with multiple colors", image: "Screenshot_20251008_141313 (2).jpg", badge: "Vibrant"},
+{id: 61, name: "Timeless wall lights", category: "chandelier", price: 3500, description: "Sophisticated chandelier for formal dining", image: "Screenshot_20251008_141328 (1).jpg", badge: "Sophisticated"},
+{id: 62, name: "Timeless Wall Lights", category: "lamp", price: 3500, description: "Elegant lamp with premium finish", image: "Screenshot_20251008_141343 (1).jpg", badge: "Premium Finish"},
+{id: 63, name: "Wall Lights", category: "outdoor", price: 2900, description: "Decorative outdoor lighting fixture", image: "Screenshot_20251008_141403 (1).jpg", badge: "Decorative"},
+{id: 64, name: "Wall Lights", category: "event", price: 2900, description: "Advanced event lighting technology", image: "Screenshot_20251008_141419 (1).jpg", badge: "Advanced"},
+{id: 65, name: "Wall Lights", category: "fairy", price: 2900, description: "Soft fairy lights for bedroom ambiance", image: "Screenshot_20251008_141435 (1).jpg", badge: "Soft"},
+{id: 66, name: "Mordern Unique Chandelier", category: "chandelier", price: 9999, description: "Modern chandelier with geometric design", image: "Screenshot_20251008_141442 (1).jpg", badge: "Geometric"},
+{id: 67, name: "Surface Truck Lights", category: "lamp", price: 1800, description: "Compact lamp perfect for small spaces", image: "Screenshot_20251008_141501 (1).jpg", badge: "Compact"},
+{id: 68, name: "Modern Lights", category: "lamp", price: 15500, description: "Motion-sensor outdoor lighting", image: "Screenshot_20251008_141507 (1).jpg", badge: "Motion-Sensor"},
+{id: 69, name: "Clean Aesthetics", category: "event", price: 16500, description: "Multi-color event lighting system", image: "Screenshot_20251008_141518 (1).jpg", badge: "Multi-Color"},
+{id: 70, name: "Modern Lights", category: "fairy", price: 16500, description: "Sparkling fairy lights for parties", image: "Screenshot_20251008_141526 (1).jpg", badge: "Sparkling"},
+{id: 71, name: "Clean Modern Lights", category: "chandelier", price: 16500, description: "Timeless chandelier design", image: "Screenshot_20251008_141538 (1).jpg", badge: "Timeless"},
+{id: 72, name: "Dinning Lights ", category: "lamp", price: 13500, description: "Adjustable lamp with dimmer control", image: "Screenshot_20251008_141601 (1).jpg", badge: "Dimmer Control"},
+// {id: 73, name: "Product Showcase 54", category: "outdoor", price: 5700, description: "LED outdoor lighting solution", image: "Screenshot_20251008_141603 (1).jpg", badge: "LED"},
+{id: 74, name: "Unique Pendant Lights", category: "event", price: 8500, description: "Professional-grade event lighting", image: "Screenshot_20251008_141624 (1).jpg", badge: "Professional-Grade"},
+{id: 75, name: "900mm Feather Wall Lights", category: "fairy", price: 15000, description: "Gentle fairy lights for relaxation", image: "Screenshot_20251008_141631 (1).jpg", badge: "Gentle"},
+{id: 76, name: "Tri Colours Ceiling Lights", category: "chandelier", price: 2999, description: "Artistic chandelier with unique design", image: "Screenshot_20251008_141638 (1).jpg", badge: "Artistic"},
+{id: 77, name: "Dinning and Living Combo", category: "lamp", price: 39999, description: "Stylish lamp with touch control", image: "Screenshot_20251008_141649 (1).jpg", badge: "Touch Control"},
+//{id: 78, name: "Product Showcase 59", category: "outdoor", price: 5450, description: "Waterproof outdoor lighting fixture", image: "Screenshot_20251008_141700 (1).jpg", badge: "Waterproof"},
+{id: 79, name: "Modern Outdoor Wall Lights", category: "event", price: 3500, description: "Customizable event lighting setup", image: "Screenshot_20251008_141705 (1).jpg", badge: "Customizable"},
+{id: 80, name: "Modern Wall Lights", category: "fairy", price: 3500, description: "Enchanting fairy lights for weddings", image: "Screenshot_20251008_141713 (1).jpg", badge: "Enchanting"},
+{id: 81, name: "modern wall lights", category: "chandelier", price: 2999, description: "Regal chandelier for grand entrances", image: "Screenshot_20251008_141721 (1).jpg", badge: "Regal"},
+{id: 82, name: "Modern wall lights", category: "lamp", price: 2500, description: "Versatile lamp with multiple settings", image: "Screenshot_20251008_141726 (1).jpg", badge: "Multiple Settings"},
+{id: 83, name: "Modern Wall Lights", category: "outdoor", price: 4500, description: "Automatic outdoor lighting system", image: "Screenshot_20251008_141735 (1).jpg", badge: "Automatic"},
+// {id: 84, name: "Product Showcase 65", category: "event", price: 17200, description: "High-end event lighting equipment", image: "Screenshot_20251008_141735 (2).jpg", badge: "High-End"},
+{id: 85, name: "Modern Wall Lights ", category: "fairy", price: 4500, description: "Magical fairy lights for special events", image: "Screenshot_20251008_141742 (1).jpg", badge: "Magical"},
+// {id: 86, name: "Product Showcase 67", category: "chandelier", price: 12700, description: "Contemporary chandelier with LED technology", image: "Screenshot_20251008_141742 (2).jpg", badge: "LED Technology"},
+//{id: 87, name: "Product Showcase 68", category: "lamp", price: 3800, description: "Modern lamp with wireless charging", image: "Screenshot_20251008_141753 (1).jpg", badge: "Wireless Charging"},
+{id: 88, name: "Modern Wall Lights", category: "outdoor", price: 5500, description: "Smart outdoor lighting with app control", image: "Screenshot_20251008_141803 (1).jpg", badge: "App Control"},
+{id: 89, name: "Modern Wall Lights", category: "event", price: 5500, description: "Dynamic event lighting with music sync", image: "Screenshot_20251008_141813 (1).jpg", badge: "Music Sync"},
+{id: 90, name: "OutDorr Lights", category: "fairy", price: 2500, description: "Dreamy fairy lights for bedrooms", image: "Screenshot_20251008_141833 (1).jpg", badge: "Dreamy"},
+{id: 91, name: "Modern Outdoor WallLights", category: "chandelier", price: 2500, description: "Exclusive chandelier design", image: "Screenshot_20251008_141850 (1).jpg", badge: "Exclusive"},
+{id: 92, name: "Wall Lights", category: "lamp", price: 2500, description: "Eco-friendly lamp with energy saving", image: "Screenshot_20251008_141900 (1).jpg", badge: "Eco-Friendly"},
+{id: 93, name: "Sisal Pendants", category: "outdoor", price: 6500, description: "Solar outdoor lighting with backup", image: "Screenshot_20251008_141907 (1).jpg", badge: "Backup Power"},
+{id: 94, name: "Ceiling Lights With 3 lighting modes", category: "event", price: 8500, description: "Premium event lighting package", image: "Screenshot_20251008_141953 (1).jpg", badge: "Premium Package"},
+{id: 95, name: "Modern chandelier with 3 lighting modes", category: "fairy", price: 9500, description: "Cozy fairy lights for living rooms", image: "Screenshot_20251008_142011 (1).jpg", badge: "Cozy"},
+{id: 96, name: "Modern Chandelier Lights", category: "chandelier", price: 8500, description: "Luxurious chandelier with gold accents", image: "Screenshot_20251008_142030 (1).jpg", badge: "Gold Accents"},
+{id: 97, name: "Black Ceiling Lights", category: "lamp", price: 2000, description: "Sleek lamp with USB ports", image: "Screenshot_20251008_142037 (1).jpg", badge: "USB Ports"},
+{id: 98, name: "Surface down lights", category: "outdoor", price: 550, description: "Motion-activated outdoor lighting", image: "Screenshot_20251008_142042 (1).jpg", badge: "Motion-Activated"},
+//{id: 99, name: "Product Showcase 80", category: "event", price: 16300, description: "Interactive event lighting system", image: "Screenshot_20251008_142050 (1).jpg", badge: "Interactive"},
+//{id: 100, name: "Product Showcase 81", category: "fairy", price: 2160, description: "Whimsical fairy lights for children's rooms", image: "Screenshot_20251008_142106 (1).jpg", badge: "Whimsical"},
+//{id: 101, name: "Product Showcase 82", category: "chandelier", price: 13400, description: "Statement chandelier for large spaces", image: "Screenshot_20251008_142120 (1).jpg", badge: "Statement"},
+{id: 102, name: "5 Bulbs Chamdeier", category: "lamp", price: 11500, description: "Adjustable lamp with color temperature", image: "Screenshot_20251008_142127 (1).jpg", badge: "Color Temperature"},
+{id: 103, name: "Modern Wall Lights", category: "outdoor", price: 6500, description: "Weather-resistant outdoor LED lights", image: "Screenshot_20251008_142132 (1).jpg", badge: "Weather-Resistant LED"},
+{id: 104, name: "Modernised Wall lights", category: "event", price: 10500, description: "Stunning event lighting for weddings", image: "Screenshot_20251008_142139 (1).jpg", badge: "Wedding Lighting"},
+{id: 105, name: "Wood Finished Ceiling Lights", category: "fairy", price: 3500, description: "Elegant fairy lights for dining areas", image: "Screenshot_20251008_142144 (1).jpg", badge: "Elegant"},
+{id: 106, name: "Modern Wall Lights", category: "chandelier", price: 4500, description: "Modern chandelier with minimalist design", image: "Screenshot_20251008_142202 (1).jpg", badge: "Minimalist Design"},
+{id: 107, name: "Modern Wall Lights", category: "lamp", price: 5500, description: "Portable lamp with battery option", image: "Screenshot_20251008_142208 (1).jpg", badge: "Portable"},
+{id: 108, name: "Modern Wall Lights", category: "outdoor", price: 2500, description: "Garden lighting with timer function", image: "Screenshot_20251008_142223 (1).jpg", badge: "Timer Function"},
+{id: 109, name: "Modern Wall Lights", category: "event", price: 4500, description: "Professional event lighting rental", image: "Screenshot_20251008_142229 (1).jpg", badge: "Rental Available"},
+{id: 110, name: "Surface Down Lights", category: "fairy", price: 2500, description: "Romantic fairy lights for date nights", image: "Screenshot_20251008_142240 (1).jpg", badge: "Romantic"},
+{id: 111, name: "2 Rings Chandelier", category: "chandelier", price: 9500, description: "Traditional chandelier with modern features", image: "Screenshot_20251008_142251 (1).jpg", badge: "Traditional-Modern"},
+{id: 112, name: "Modern Wall Lights", category: "lamp", price: 2500, description: "Smart lamp with voice control", image: "Screenshot_20251008_142259 (1).jpg", badge: "Voice Control"},
+{id: 113, name: "Wall Lights", category: "outdoor", price: 8500, description: "High-brightness outdoor lighting", image: "Screenshot_20251008_142311 (1).jpg", badge: "High-Brightness"},
+{id: 114, name: "Moder Chandelier", category: "event", price: 7999, description: "Custom event lighting solutions", image: "Screenshot_20251008_142317 (1).jpg", badge: "Custom Solutions"},
+//{id: 115, name: "Product Showcase 96", category: "fairy", price: 2040, description: "Subtle fairy lights for office spaces", image: "Screenshot_20251008_142327 (1).jpg", badge: "Subtle"},
+{id: 116, name: "Wall Lights ", category: "chandelier", price: 3999, description: "Art deco chandelier with vintage appeal", image: "Screenshot_20251008_142332 (1).jpg", badge: "Art Deco"},
+{id: 117, name: "Modern Lights for your space", category: "lamp", price: 7500, description: "Compact lamp with reading light", image: "Screenshot_20251008_142338 (1).jpg", badge: "Reading Light"},
+{id: 118, name: "Ceiling Lights", category: "outdoor", price: 8500, description: "Decorative outdoor lighting fixture", image: "Screenshot_20251008_142343 (1).jpg", badge: "Decorative"},
+{id: 119, name: " 3 in One Pendant Lights", category: "event", price: 7500, description: "Energy-efficient event lighting", image: "Screenshot_20251008_142352 (1).jpg", badge: "Energy-Efficient"},
+{id: 120, name: "4 in One Pendant Lights", category: "fairy", price: 7500, description: "Glowing fairy lights for parties", image: "Screenshot_20251008_142613 (1).jpg", badge: "Glowing"},
+{id: 121, name: "Black Crystal Chandeliers", category: "chandelier", price: 12500, description: "Crystal chandelier with premium finish", image: "Screenshot_20251008_142634 (1).jpg", badge: "Crystal Premium"},
+{id: 122, name: "Rechaegeable Mirror lights", category: "lamp", price: 5500, description: "Modern lamp with Bluetooth speaker", image: "Screenshot_20251008_142648 (1).jpg", badge: "Bluetooth Speaker"},
+{id: 123, name: "Glass Pendants", category: "outdoor", price: 5500, description: "Smart outdoor lighting system", image: "Screenshot_20251008_142706 (1).jpg", badge: "Smart System"},
+//{id: 124, name: "Product Showcase 105", category: "event", price: 17400, description: "Luxury event lighting package", image: "Screenshot_20251008_142718 (1).jpg", badge: "Luxury Package"},
+{id: 125, name: "Glass Pendant Lights", category: "fairy", price: 6500, description: "Twinkling fairy lights for Christmas", image: "Screenshot_20251008_142730 (1).jpg", badge: "Christmas"},
+{id: 126, name: "Glass Pendant Lights", category: "chandelier", price: 6500, description: "Contemporary chandelier with clean design", image: "Screenshot_20251008_142742 (1).jpg", badge: "Clean Design"},
+{id: 127, name: "Ceiling Pendants lights", category: "lamp", price: 2500, description: "Task lamp with focused lighting", image: "Screenshot_20251008_142808 (1).jpg", badge: "Task Lighting"},
+{id: 128, name: "Ceiling Lights", category: "outdoor", price: 1800, description: "Solar outdoor lighting with remote", image: "Screenshot_20251008_142819 (1).jpg", badge: "Remote Control"},
+{id: 129, name: "Table Lamps", category: "event", price: 5500, description: "Professional event lighting setup", image: "Screenshot_20251008_142828 (1).jpg", badge: "Professional Setup"},
+{id: 130, name: "Modern Ceiling Lights", category: "fairy", price: 5500, description: "Soft fairy lights for relaxation", image: "Screenshot_20251008_142859 (1).jpg", badge: "Relaxation"},
+{id: 131, name: "Table Lamps", category: "chandelier", price: 8500, description: "Elegant chandelier for formal dining", image: "Screenshot_20251008_142921 (1).jpg", badge: "Formal Dining"},
+{id: 132, name: "Small Ceiling Lights", category: "lamp", price: 1500, description: "Versatile lamp with multiple modes", image: "Screenshot_20251008_142935 (1).jpg", badge: "Multiple Modes"},
+{id: 133, name: "Gold Wall Lights", category: "outdoor", price: 3500, description: "Automatic outdoor lighting control", image: "Screenshot_20251008_142957 (1).jpg", badge: "Automatic Control"},
+{id: 134, name: "3 in One Pendant Lights", category: "event", price: 7500, description: "High-quality event lighting equipment", image: "Screenshot_20251008_143001 (1).jpg", badge: "High-Quality"},
+{id: 135, name: "Unique Pendant lights", category: "fairy", price: 6500, description: "Delicate fairy lights for bedrooms", image: "Screenshot_20251008_143015 (1).jpg", badge: "Bedroom"},
+{id: 136, name: "Unique Minimalists", category: "chandelier", price: 12500, description: "Modern chandelier with Straight ", image: "Screenshot_20251008_143055 (1).jpg", badge: "LED Strips"},
+{id: 137, name: "Outdoor Wall Lights", category: "lamp", price: 2500, description: "Smart lamp with app integration", image: "Screenshot_20251008_143105 (1).jpg", badge: "App Integration"},
+{id: 138, name: "Black And Gold Pendant Lights", category: "outdoor", price: 3500, description: "Weatherproof outdoor LED lighting", image: "Screenshot_20251008_143111 (1).jpg", badge: "Weatherproof"},
+//{id: 139, name: "Product Showcase 120", category: "event", price: 17200, description: "Dynamic event lighting with effects", image: "Screenshot_20251008_143119 (1).jpg", badge: "Effects"},
+{id: 140, name: "White and Black", category: "fairy", price: 2900, description: "Magical fairy lights for events", image: "Screenshot_20251008_143206 (1).jpg", badge: "Magical"},
+{id: 141, name: "Golden Dinning Lights", category: "chandelier", price: 19999, description: "Luxury chandelier with crystal details", image: "Screenshot_20251008_143220 (1).jpg", badge: "Crystal Details"},
+{id: 142, name: "White Dinning Lights", category: "lamp", price: 19999, description: "Adjustable lamp with memory function", image: "Screenshot_20251008_143234 (1).jpg", badge: "Memory Function"},
+{id: 143, name: "Black and White Lights", category: "outdoor", price: 2500, description: "Motion-sensing outdoor lighting", image: "Screenshot_20251008_143245 (1).jpg", badge: "Motion-Sensing"},
+{id: 144, name: "6 Bulbs Chandelier", category: "event", price: 8500, description: "Premium event lighting solutions", image: "Screenshot_20251008_143252 (1).jpg", badge: "Premium Solutions"},
+{id: 145, name: "Black Crystal Chandeliers", category: "chandelier", price: 10500, description: "Warm fairy lights for cozy spaces", image: "Screenshot_20251008_143303 (2).jpg", badge: "Cozy"},
+{id: 146, name: "Gold Crystal Chandelier", category: "chandelier", price: 10500, description: "Artistic chandelier with unique style", image: "Screenshot_20251008_143311 (1).jpg", badge: "Unique Style"},
+{id: 147, name: "Pendant Lights", category: "lamp", price: 3500, description: "Minimalist lamp with warm light", image: "Screenshot_20251008_143317 (1).jpg", badge: "Warm Light"},
+{id: 148, name: "Fun Crystal Chandeliers", category: "outdoor", price: 19999, description: "Solar outdoor lighting with timer", image: "Screenshot_20251008_143331 (1).jpg", badge: "Timer"},
+//{id: 149, name: "Product Showcase 130", category: "event", price: 16900, description: "Professional event lighting rental", image: "Screenshot_20251008_143337 (1).jpg", badge: "Rental"},
+//{id: 150, name: "Product Showcase 131", category: "fairy", price: 2140, description: "Gentle fairy lights for meditation", image: "Screenshot_20251008_143408 (1).jpg", badge: "Meditation"},
+//{id: 151, name: "Product Showcase 132", category: "chandelier", price: 13200, description: "Contemporary chandelier with modern appeal", image: "Screenshot_20251008_143420 (1).jpg", badge: "Modern Appeal"},
+{id: 152, name: "3 in One Pendant Lights", category: "lamp", price: 12500, description: "Functional lamp with energy saving", image: "Screenshot_20251008_143430 (1).jpg", badge: "Energy Saving"},
+//{id: 153, name: "Product Showcase 134", category: "outdoor", price: 5820, description: "High-performance outdoor LED lights", image: "Screenshot_20251008_143438 (1).jpg", badge: "High-Performance LED"},
+{id: 154, name: "Gold Ceiling Lights", category: "event", price: 3400, description: "Custom event lighting design", image: "Screenshot_20251008_143438 (2).jpg", badge: "Custom Design"},
+{id: 155, name: "Space Lights", category: "fairy", price: 4999, description: "Sparkling fairy lights for celebrations", image: "Screenshot_20251008_143611 (1).jpg", badge: "Celebrations"},
+{id: 156, name: "Modern Wall LIghts", category: "chandelier", price: 3500, description: "Elegant chandelier with premium materials", image: "Screenshot_20251008_143616 (1).jpg", badge: "Premium Materials"},
+//{id: 157, name: "Product Showcase 138", category: "lamp", price: 4000, description: "Smart lamp with wireless connectivity", image: "Screenshot_20251008_143645 (1).jpg", badge: "Wireless Connectivity"},
+//{id: 158, name: "Product Showcase 139", category: "outdoor", price: 5900, description: "Automatic outdoor lighting system", image: "Screenshot_20251008_143700 (1).jpg", badge: "Automatic System"},
+{id: 159, name: "Modernised Ceiling Lights", category: "event", price: 16500, description: "High-end event lighting equipment", image: "Screenshot_20251008_143706 (1).jpg", badge: "High-End Equipment"},
+{id: 160, name: "Wall Lights ", category: "fairy", price: 2900, description: "Romantic fairy lights for special occasions", image: "Screenshot_20251008_143743 (1).jpg", badge: "Special Occasions"},
+{id: 161, name: "Moder wall Lights", category: "chandelier", price: 44000, description: "Traditional chandelier with modern features", image: "Screenshot_20251008_143751 (1).jpg", badge: "Traditional-Modern"},
+{id: 162, name: "Modern Ceiling Lights", category: "lamp", price: 7500, description: "Versatile lamp with adjustable brightness", image: "Screenshot_20251008_143802 (1).jpg", badge: "Adjustable Brightness"},
+{id: 163, name: "Office Ceiling Lights", category: "outdoor", price: 7500, description: "Smart outdoor lighting with app control", image: "Screenshot_20251008_143809 (1).jpg", badge: "App Control"},
+//{id: 164, name: "Product Showcase 145", category: "event", price: 17100, description: "Professional event lighting solutions", image: "Screenshot_20251008_143823 (1).jpg", badge: "Professional Solutions"},
+{id: 165, name: "3 in One chalendier", category: "fairy", price: 8500, description: "Dreamy fairy lights for bedrooms", image: "Screenshot_20251008_143835 (1).jpg", badge: "Dreamy"},
+{id: 166, name: "Sisal Pendant Lights", category: "chandelier", price: 6500, description: "Exclusive chandelier design", image: "Screenshot_20251008_143850 (1).jpg", badge: "Exclusive Design"},
+{id: 167, name: "Simple Minimalist", category: "lamp", price: 7999, description: "Eco-friendly lamp with LED technology", image: "Screenshot_20251008_143912 (1).jpg", badge: "LED Technology"},
+{id: 168, name: "Black and White Lights", category: "outdoor", price: 2500, description: "Solar outdoor lighting with backup power", image: "Screenshot_20251008_143923 (1).jpg", badge: "Backup Power"},
+{id: 169, name: "2 Rings Chandelier", category: "event", price: 8600, description: "Premium event lighting package", image: "Screenshot_20251008_143928 (1).jpg", badge: "Premium Package"},
+{id: 170, name: "OutDoor Wall Lights", category: "outdoor", price: 5999, description: "Cozy fairy lights for living rooms", image: "Screenshot_20251008_143941 (1).jpg", badge: "Living Room"},
+{id: 171, name: "Unique Minimalists 3 in One Pendants", category: "chandelier", price: 9999, description: "Luxurious chandelier with gold accents", image: "Screenshot_20251008_143953 (1).jpg", badge: "Gold Accents"},
+{id: 172, name: "Surface Sport Lights", category: "lamp", price: 2500, description: "Sleek lamp with USB charging ports", image: "Screenshot_20251008_143958 (1).jpg", badge: "USB Charging"},
+//{id: 173, name: "Product Showcase 154", category: "outdoor", price: 5720, description: "Motion-activated outdoor lighting", image: "Screenshot_20251008_144002 (1).jpg", badge: "Motion-Activated"},
+{id: 174, name: "Tri Colours Ceiling Lights", category: "event", price: 2500, description: "Interactive event lighting system", image: "Screenshot_20251008_144008 (1).jpg", badge: "Interactive System"},
+{id: 175, name: " Golden Ceiling Lights", category: "fairy", price: 2500, description: "Whimsical fairy lights for children's rooms", image: "Screenshot_20251008_144020 (1).jpg", badge: "Children's Room"},
+//{id: 176, name: "Product Showcase 157", category: "chandelier", price: 13900, description: "Statement chandelier for large spaces", image: "Screenshot_20251008_144020 (2).jpg", badge: "Large Spaces"},
+//{id: 177, name: "Product Showcase 158", category: "lamp", price: 4040, description: "Adjustable lamp with color temperature control", image: "Screenshot_20251008_144020 (3).jpg", badge: "Color Temperature"},
+{id: 178, name: "white Ceiling Lights", category: "outdoor", price: 2500, description: "Weather-resistant outdoor LED lighting", image: "Screenshot_20251008_144042 (1).jpg", badge: "Weather-Resistant"},
+{id: 179, name: "Bedroom space Lights", category: "event", price: 9500, description: "Stunning event lighting for weddings", image: "Screenshot_20251008_144056 (1).jpg", badge: "Wedding Lighting"},
+{id: 180, name: "Ceiling Lights", category: "fairy", price: 8600, description: "Elegant fairy lights for dining areas", image: "Screenshot_20251008_144102 (1).jpg", badge: "Dining Area"},
+//{id: 181, name: "Product Showcase 162", category: "chandelier", price: 13700, description: "Modern chandelier with minimalist design", image: "Screenshot_20251008_144107 (1).jpg", badge: "Minimalist"},
+//{id: 182, name: "Product Showcase 163", category: "lamp", price: 3920, description: "Portable lamp with battery option", image: "Screenshot_20251008_144107 (2).jpg", badge: "Portable"},
+{id: 183, name: "Gold Wall Lights", category: "outdoor", price: 4500, description: "Garden lighting with timer function", image: "Screenshot_20251008_144120 (1).jpg", badge: "Garden Timer"},
+{id: 184, name: "Gate Lights", category: "event", price: 5500, description: "Professional event lighting rental", image: "Screenshot_20251008_144128 (1).jpg", badge: "Professional Rental"},
+{id: 185, name: "Solar Garden Lights", category: "fairy", price: 7500, description: "Romantic fairy lights for date nights", image: "Screenshot_20251008_144140 (1).jpg", badge: "Date Night"},
+{id: 186, name: "Bedroom Ceiling Lights", category: "chandelier", price: 13500, description: "Traditional chandelier with modern features for kids bedroom", image: "Screenshot_20251008_144157 (1).jpg", badge: "Traditional-Modern"},
+{id: 187, name: "Kids Bedroom Lights", category: "lamp", price: 13500, description: "Smart lamp with voice control", image: "Screenshot_20251008_144205 (1).jpg", badge: "Voice Control"},
+{id: 188, name: "Gold Mirror Lights", category: "outdoor", price: 4500, description: "High-brightness outdoor lighting", image: "Screenshot_20251008_144215 (1).jpg", badge: "High-Brightness"},
+{id: 189, name: "Gold Acrylic Center Chandelier", category: "event", price: 15500, description: "Custom event lighting solutions", image: "Screenshot_20251008_144222 (1).jpg", badge: "Custom Solutions"},
+//{id: 190, name: "Product Showcase 171", category: "fairy", price: 2080, description: "Subtle fairy lights for office spaces", image: "Screenshot_20251008_144226 (1).jpg", badge: "Office"},
+{id: 191, name: "Outdoor Wall Lights", category: "chandelier", price: 2500, description: "Art deco chandelier with vintage appeal", image: "Screenshot_20251008_144238 (1).jpg", badge: "Vintage Appeal"},
+{id: 192, name: "Gold Wall Lights", category: "lamp", price: 4400, description: "Compact lamp with reading light", image: "Screenshot_20251008_144248 (1).jpg", badge: "Reading Light"},
+{id: 193, name: "Gold Wall Wall Lights", category: "outdoor", price: 4400, description: "Decorative outdoor lighting fixture", image: "Screenshot_20251008_144306 (1).jpg", badge: "Decorative"},
+{id: 194, name: "Modern Wall Lights", category: "event", price: 4400, description: "Energy-efficient event lighting", image: "Screenshot_20251008_144322 (1).jpg", badge: "Energy-Efficient"},
+{id: 195, name: "Modern Wall Lights ", category: "fairy", price: 4400, description: "Glowing fairy lights for parties", image: "Screenshot_20251008_144332 (1).jpg", badge: "Party Lights"},
+{id: 196, name: "Modern Wall Lights", category: "chandelier", price: 4400, description: "Crystal chandelier with premium finish", image: "Screenshot_20251008_144341 (1).jpg", badge: "Crystal Premium"},
+{id: 197, name: "Black and Gold Lights", category: "lamp", price: 5500, description: "Modern lamp with Bluetooth speaker", image: "Screenshot_20251008_144402 (1).jpg", badge: "Bluetooth Speaker"},
+{id: 198, name: "Gold white lights", category: "outdoor", price: 5500, description: "Smart outdoor lighting system", image: "Screenshot_20251008_144429 (1).jpg", badge: "Smart System"},
+//{id: 199, name: "Product Showcase 180", category: "event", price: 17600, description: "Luxury event lighting package", image: "Screenshot_20251008_144501 (1).jpg", badge: "Luxury Package"},
+//{id: 200, name: "Product Showcase 181", category: "fairy", price: 2180, description: "Twinkling fairy lights for Christmas", image: "Screenshot_20251008_144506 (1).jpg", badge: "Christmas"},
+{id: 201, name: "Wall Feathery Lights", category: "chandelier", price: 4999, description: "Contemporary chandelier with clean design", image: "Screenshot_20251008_144510 (1).jpg", badge: "Clean Design"},
+{id: 202, name: "Wall Lights", category: "lamp", price: 4500, description: "Task lamp with focused lighting", image: "Screenshot_20251008_144518 (1).jpg", badge: "Task Lighting"},
+//{id: 203, name: "Luxury Light Fixture", category: "outdoor", price: 5820, description: "Solar outdoor lighting with remote", image: "Screenshot_20251008_144530 (1).jpg", badge: "Remote Control"},
+{id: 204, name: "Modern Wall Lights", category: "event", price: 17400, description: "Professional event lighting setup", image: "Screenshot_20251008_144536 (1).jpg", badge: "Professional Setup"},
+{id: 205, name: "Unique minimalists", category: "fairy", price: 2120, description: "Soft fairy lights for relaxation", image: "Screenshot_20251008_144539 (1).jpg", badge: "Relaxation"},
+//{id: 206, name: "Product Showcase 187", category: "chandelier", price: 13600, description: "Elegant chandelier for formal dining", image: "Screenshot_20251008_144547 (1).jpg", badge: "Formal Dining"},
+{id: 207, name: "Ceiling lights", category: "lamp", price: 8500, description: "Versatile lamp with multiple modes", image: "Screenshot_20251008_144555 (1).jpg", badge: "Multiple Modes"},
+//{id: 208, name: "Product Showcase 189", category: "outdoor", price: 5680, description: "Automatic outdoor lighting control", image: "Screenshot_20251008_144602 (1).jpg", badge: "Automatic Control"},
+
+// Additional Screenshot Collection
+{id: 209, name: "Modern Ceiling Lights", category: "chandelier", price: 14200, description: "Premium chandelier from our exclusive collection", image: "Screenshot_2025_1008_135228.png", badge: "Exclusive"},
+{id: 210, name: "modern Wall Light", category: "event", price: 18200, description: "Premium event lighting from our showcase", image: "Screenshot_2025_1008_135432.png", badge: "Showcase"},
+{id: 211, name: "Rechargeable Wall Mirror Lights", category: "fairy", price: 2400, description: "Premium fairy lights with advanced features", image: "Screenshot_2025_1008_135625.png", badge: "Advanced Features"}
+  ];
+
+        // Function to generate WhatsApp message
+        function generateWhatsAppMessage(light) {
+            return `Hi Sparky_Lights254! 👋
+I'm interested in this light:
+🪄 ${light.name}
+💰 Price: KES ${light.price.toLocaleString()}
+You can view it here: ${light.imageUrl}
+
+Please confirm availability.`;
+        }
 
         // Function to render lights
         function renderLights(lightsArray) {
@@ -691,6 +921,10 @@
                 const lightCard = document.createElement('div');
                 lightCard.className = 'product-card';
                 lightCard.dataset.category = light.category;
+                
+                const whatsappMessage = generateWhatsAppMessage(light);
+                const whatsappURL = `https://wa.me/254712827840?text=${encodeURIComponent(whatsappMessage)}`;
+                
                 lightCard.innerHTML = `
                     <div class="product-img" style="background-image: url('${light.image}')">
                         <div class="product-badge">${light.badge}</div>
@@ -700,7 +934,7 @@
                         <p class="product-description">${light.description}</p>
                         <div class="product-price">KES ${light.price.toLocaleString()}</div>
                         <div class="product-actions">
-                            <a href="https://wa.me/254712827840?text=Hi%20Sparky_Lights254!%20I%20want%20to%20order%20${encodeURIComponent(light.name)}%20(KES%20${light.price})." class="btn btn-whatsapp">
+                            <a href="${whatsappURL}" class="btn btn-whatsapp" target="_blank">
                                 <i class="fab fa-whatsapp"></i> Order Now
                             </a>
                         </div>
