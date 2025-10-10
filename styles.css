@@ -1,10 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
-@import url();
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
-        /* CSS Variables for Theming */
-:root {
+        :root {
             --primary-pink: #ff4d8d;
             --soft-pink: #ffb6c1;
             --light-pink: #ffeef2;
@@ -352,10 +346,60 @@
             margin-top: 40px;
         }
 
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: var(--light-pink);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--glow);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-pink), var(--soft-pink));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--white);
+            font-size: 2rem;
+        }
+
+        .service-card h3 {
+            color: var(--primary-pink);
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+        }
+
         /* Testimonials Section */
         .testimonials {
             padding: 80px 0;
-            background-color: var(--light-pink);
+            background-color: var(--white);
         }
 
         .testimonials-grid {
@@ -423,6 +467,92 @@
         .author-info p {
             color: var(--primary-pink);
             font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--light-pink);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-pink), var(--soft-pink));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h3 {
+            color: var(--primary-pink);
+            margin-bottom: 5px;
+        }
+
+        .contact-details p {
+            color: var(--dark-gray);
+        }
+
+        .contact-form {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-gray);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--soft-pink);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-pink);
+            box-shadow: var(--glow);
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
         }
 
         /* Footer */
@@ -552,6 +682,11 @@
             .slide-content h2 {
                 font-size: 2.8rem;
             }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
 
         @media (max-width: 768px) {
@@ -597,11 +732,6 @@
             .intro h2, .section-header h2 {
                 font-size: 2rem;
             }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: flex-start;
-            }
         }
 
         @media (max-width: 576px) {
@@ -627,5 +757,9 @@
                 width: 50px;
                 height: 50px;
                 font-size: 1.5rem;
+            }
+            
+            .contact-form {
+                padding: 25px;
             }
         }
