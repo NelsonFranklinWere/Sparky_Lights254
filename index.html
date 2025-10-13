@@ -107,6 +107,24 @@
                         <a href="https://wa.me/254712827840?text=Hi%20Sparky_Lights254!%20I%20want%20to%20order%20Pink%20Crystal%20Chandelier." class="btn btn-whatsapp">Order This via WhatsApp 💬</a>
                     </div>
                 </div>
+                <!-- fist sammple -->
+                 <div class="product-card" 
+                 data-name="Sisal Pendants 2000" 
+                 data-price="KES 2,000" 
+                 data-image="number1.jpg">
+                 
+                <div class="product-img" 
+                     style="background-image: url('number1.jpg'); cursor: pointer;">
+                </div>
+
+                <div class="product-info">
+                    <h3>Sisal Pendants 2000</h3>
+                    <p class="product-price">KES 2,000</p>
+                    <a href="#" class="btn btn-whatsapp">Order This via WhatsApp 💬</a>
+                </div>
+            </div>
+
+
                 <div class="product-card">
                     <div class="product-img" style="background-image: url('number3.jpg');"></div>
                     <div class="product-info">
@@ -356,6 +374,31 @@
         mobileMenu.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
+
+        // whatsapp order with image link
+     document.addEventListener("DOMContentLoaded", () => {
+             const phoneNumber = "254712827840"; // Your WhatsApp number
+
+        document.querySelectorAll(".product-card").forEach(card => {
+             const btn = card.querySelector(".btn-whatsapp");
+             const img = card.querySelector(".product-img");
+             const name = card.dataset.name;
+             const price = card.dataset.price;
+             const image = card.dataset.image;
+
+             const message = encodeURIComponent(
+            `Hi Sparky_Lights254! 👋\nI want to order *${name}* (${price}).\nHere is the image link:\n${window.location.origin}/${image}`
+        );
+
+             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+
+        // Make both button and image clickable
+        btn.href = whatsappUrl;
+        img.addEventListener("click", () => {
+            window.open(whatsappUrl, "_blank");
+        });
+    });
+});
 
         // Hero Slider
         const slides = document.querySelectorAll('.slide');
