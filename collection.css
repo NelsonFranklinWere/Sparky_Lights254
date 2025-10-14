@@ -282,6 +282,29 @@
             position: relative;
         }
 
+        /* Responsive breakpoints: 2 columns on small screens, 3 on medium */
+        @media (max-width: 480px) {
+            .collections-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+
+            .product-img {
+                height: 160px;
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 900px) {
+            .collections-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+
+            .product-img {
+                height: 200px;
+            }
+        }
+
         .product-badge {
             position: absolute;
             top: 15px;
