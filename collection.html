@@ -560,6 +560,38 @@ Please confirm availability.`;
                 header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
             }
         });
+
+        // WhatsApp Popup Timing
+        const whatsappTooltip = document.querySelector('.whatsapp-tooltip');
+        let popupTimeout;
+        let hideTimeout;
+        let cycleTimeout;
+
+        function showPopup() {
+            whatsappTooltip.classList.add('show');
+            
+            // Hide after 3 seconds
+            hideTimeout = setTimeout(() => {
+                whatsappTooltip.classList.remove('show');
+                
+                // Wait for 2 minutes (120 seconds) before next cycle
+                cycleTimeout = setTimeout(() => {
+                    showPopup();
+                }, 120000); // 2 minutes = 120,000 milliseconds
+            }, 3000); // 3 seconds
+        }
+
+        // Start the popup cycle after 5 seconds
+        popupTimeout = setTimeout(() => {
+            showPopup();
+        }, 5000); // 5 seconds
+
+        // Clean up timeouts when page is unloaded
+        window.addEventListener('beforeunload', () => {
+            if (popupTimeout) clearTimeout(popupTimeout);
+            if (hideTimeout) clearTimeout(hideTimeout);
+            if (cycleTimeout) clearTimeout(cycleTimeout);
+        });
     </script>
 </body>
 </html>

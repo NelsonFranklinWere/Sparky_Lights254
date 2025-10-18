@@ -430,10 +430,16 @@
             pointer-events: none;
         }
 
-        .floating-whatsapp:hover .whatsapp-tooltip {
+        .whatsapp-tooltip.show {
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Hover functionality disabled - popup only shows on automatic timing */
+        /* .floating-whatsapp:hover .whatsapp-tooltip {
+            opacity: 1;
+            transform: translateY(0);
+        } */
 
         @keyframes pulse {
             0% {
