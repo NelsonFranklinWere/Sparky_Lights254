@@ -210,6 +210,27 @@
         </a>
     </div>
 
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="lightbox-modal">
+        <div class="lightbox-content">
+            <span class="lightbox-close">&times;</span>
+            <div class="lightbox-image-container">
+                <img id="lightbox-image" src="" alt="Product Image">
+            </div>
+            <div class="lightbox-controls">
+                <button class="lightbox-btn" id="zoom-in">
+                    <i class="fas fa-search-plus"></i>
+                </button>
+                <button class="lightbox-btn" id="zoom-out">
+                    <i class="fas fa-search-minus"></i>
+                </button>
+                <button class="lightbox-btn" id="reset-zoom">
+                    <i class="fas fa-expand-arrows-alt"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Mobile Menu Toggle
         const mobileMenu = document.querySelector('.mobile-menu');
@@ -459,8 +480,22 @@
 {id: 227, name: "Modern Wall Lights", category: "event", price: 4500, description: "Sleek professional-grade wall light with a streamlined look.", image: "wallLights16.png", badge: "Sleek", imageUrl: "https://sparklights.co.ke/Screenshot_20251008_144536_1.jpg"},
 {id: 228, name: "3 mode modern Light", category: "fairy", price: 3500, description: "Glowing multi-mode light offering warm-to-cool tones and a smooth, decorative finish.", image: "wallLights17.png", badge: "Glowing", imageUrl: "https://sparklights.co.ke/Screenshot_20251008_144539_1.jpg"},
 {id: 229, name: "Modern Wall Lights", category: "lamp", price: 3500, description: "Sleek wall light with an elegant profile and soft, even glow.", image: "wallLights18.png", badge: "Sleek", imageUrl: "https://sparklights.co.ke/wallLights21.png"},
-{id: 300, name: "Ceiling Pendant lights", category: "lamp", price: 2500, description: "Decorative pendant with graceful lines and a warm, glowing accent.", image: "wallLights19.png", badge: "Decorative", imageUrl: "https://sparklights.co.ke/Screenshot_20251008_144555_1.jpg"}
+{id: 300, name: "Ceiling Pendant lights", category: "lamp", price: 2500, description: "Decorative pendant with graceful lines and a warm, glowing accent.", image: "wallLights19.png", badge: "Decorative", imageUrl: "https://sparklights.co.ke/Screenshot_20251008_144555_1.jpg"},
 //{id: 301, name: "Wall Crystals", category: "outdoor", price: 3500, description: "Automatic outdoor lighting control", image: "wallLights20.png", badge: "Modern", imageUrl: "https://sparklights.co.ke/wallLights20.png"}
+
+// New Revised Collection - IDs 13-24
+{id: 13, name: "Modern Crystal Chandelier Corridor Lights", category: "chandelier", price: 2500, description: "Elegant crystal chandelier perfect for corridors and hallways", image: "Revised1.jpg", badge: "Elegant", imageUrl: "https://sparklights.co.ke/Revised1.jpg"},
+{id: 14, name: "Modern Crystal Chandelier Corridor Lights", category: "chandelier", price: 2500, description: "Sophisticated crystal chandelier for modern corridor lighting", image: "Revised2.jpg", badge: "Sophisticated", imageUrl: "https://sparklights.co.ke/Revised2.jpg"},
+{id: 15, name: "Ceiling Pendants", category: "lamp", price: 10600, description: "Premium ceiling pendant lights with elegant design", image: "Revised3.jpg", badge: "Premium", imageUrl: "https://sparklights.co.ke/Revised3.jpg"},
+{id: 16, name: "Modern Ceiling Lights", category: "lamp", price: 13400, description: "Contemporary ceiling lights with modern aesthetics", image: "Revised4.jpg", badge: "Contemporary", imageUrl: "https://sparklights.co.ke/Revised4.jpg"},
+{id: 17, name: "Ceiling Pendants", category: "lamp", price: 10600, description: "Stylish ceiling pendant lights for any space", image: "Revised5.jpg", badge: "Stylish", imageUrl: "https://sparklights.co.ke/Revised5.jpg"},
+{id: 18, name: "Sisal Black Pendants", category: "lamp", price: 3500, description: "Unique sisal black pendant lights with natural texture", image: "Revised6.jpg", badge: "Unique", imageUrl: "https://sparklights.co.ke/Revised6.jpg"},
+{id: 19, name: "Gold Chandelier", category: "chandelier", price: 5500, description: "Luxurious gold chandelier with warm golden glow", image: "Revised7.jpg", badge: "Luxurious", imageUrl: "https://sparklights.co.ke/Revised7.jpg"},
+{id: 20, name: "Wall Lights", category: "lamp", price: 2999, description: "Modern wall lights with sleek design", image: "Revised8.jpg", badge: "Modern", imageUrl: "https://sparklights.co.ke/Revised8.jpg"},
+{id: 21, name: "Sisal Pendant for Space", category: "lamp", price: 6900, description: "Elegant sisal pendant perfect for spacious areas", image: "Revised9.jpg", badge: "Elegant", imageUrl: "https://sparklights.co.ke/Revised9.jpg"},
+{id: 22, name: "Ceiling Space Lights", category: "lamp", price: 2500, description: "Versatile ceiling lights ideal for any space", image: "Revised10.jpg", badge: "Versatile", imageUrl: "https://sparklights.co.ke/Revised10.jpg"},
+{id: 23, name: "Wall Lights", category: "lamp", price: 2999, description: "Contemporary wall lights with clean lines", image: "Revised11.jpg", badge: "Contemporary", imageUrl: "https://sparklights.co.ke/Revised11.jpg"},
+{id: 24, name: "Modern Chandelier Lights", category: "chandelier", price: 19999, description: "Premium modern chandelier with exceptional design", image: "Revised12.png", badge: "Premium", imageUrl: "https://sparklights.co.ke/Revised12.png"}
 
   ];
 
@@ -488,7 +523,7 @@ Please confirm availability.`;
                 const whatsappURL = `https://wa.me/254712827840?text=${encodeURIComponent(whatsappMessage)}`;
                 
                 lightCard.innerHTML = `
-                    <div class="product-img" style="background-image: url('${light.image}')">
+                    <div class="product-img" style="background-image: url('${light.image}')" onclick="openLightbox('${light.imageUrl}')">
                         <div class="product-badge">${light.badge}</div>
                     </div>
                     <div class="product-info">
@@ -591,6 +626,144 @@ Please confirm availability.`;
             if (popupTimeout) clearTimeout(popupTimeout);
             if (hideTimeout) clearTimeout(hideTimeout);
             if (cycleTimeout) clearTimeout(cycleTimeout);
+        });
+
+        // Lightbox functionality
+        let currentZoom = 1;
+        const maxZoom = 3;
+        const minZoom = 0.5;
+        const zoomStep = 0.2;
+
+        function openLightbox(imageUrl) {
+            const lightbox = document.getElementById('lightbox-modal');
+            const lightboxImage = document.getElementById('lightbox-image');
+            
+            lightboxImage.src = imageUrl;
+            lightbox.classList.add('show');
+            currentZoom = 1;
+            updateImageTransform();
+            
+            // Prevent body scroll
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox-modal');
+            lightbox.classList.remove('show');
+            
+            // Restore body scroll
+            document.body.style.overflow = 'auto';
+        }
+
+        function updateImageTransform() {
+            const lightboxImage = document.getElementById('lightbox-image');
+            lightboxImage.style.transform = `scale(${currentZoom})`;
+        }
+
+        function zoomIn() {
+            if (currentZoom < maxZoom) {
+                currentZoom += zoomStep;
+                updateImageTransform();
+            }
+        }
+
+        function zoomOut() {
+            if (currentZoom > minZoom) {
+                currentZoom -= zoomStep;
+                updateImageTransform();
+            }
+        }
+
+        function resetZoom() {
+            currentZoom = 1;
+            updateImageTransform();
+        }
+
+        // Event listeners for lightbox
+        document.addEventListener('DOMContentLoaded', function() {
+            const lightbox = document.getElementById('lightbox-modal');
+            const closeBtn = document.querySelector('.lightbox-close');
+            const zoomInBtn = document.getElementById('zoom-in');
+            const zoomOutBtn = document.getElementById('zoom-out');
+            const resetBtn = document.getElementById('reset-zoom');
+            const lightboxImage = document.getElementById('lightbox-image');
+
+            // Close lightbox events
+            closeBtn.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            // Zoom controls
+            zoomInBtn.addEventListener('click', zoomIn);
+            zoomOutBtn.addEventListener('click', zoomOut);
+            resetBtn.addEventListener('click', resetZoom);
+
+            // Keyboard controls
+            document.addEventListener('keydown', function(e) {
+                if (lightbox.classList.contains('show')) {
+                    switch(e.key) {
+                        case 'Escape':
+                            closeLightbox();
+                            break;
+                        case '+':
+                        case '=':
+                            zoomIn();
+                            break;
+                        case '-':
+                            zoomOut();
+                            break;
+                        case '0':
+                            resetZoom();
+                            break;
+                    }
+                }
+            });
+
+            // Mouse wheel zoom
+            lightboxImage.addEventListener('wheel', function(e) {
+                e.preventDefault();
+                if (e.deltaY < 0) {
+                    zoomIn();
+                } else {
+                    zoomOut();
+                }
+            });
+
+            // Touch gestures for mobile
+            let initialDistance = 0;
+            let currentDistance = 0;
+
+            lightboxImage.addEventListener('touchstart', function(e) {
+                if (e.touches.length === 2) {
+                    initialDistance = Math.hypot(
+                        e.touches[0].clientX - e.touches[1].clientX,
+                        e.touches[0].clientY - e.touches[1].clientY
+                    );
+                }
+            });
+
+            lightboxImage.addEventListener('touchmove', function(e) {
+                if (e.touches.length === 2) {
+                    e.preventDefault();
+                    currentDistance = Math.hypot(
+                        e.touches[0].clientX - e.touches[1].clientX,
+                        e.touches[0].clientY - e.touches[1].clientY
+                    );
+
+                    if (initialDistance > 0) {
+                        const scale = currentDistance / initialDistance;
+                        const newZoom = currentZoom * scale;
+                        
+                        if (newZoom >= minZoom && newZoom <= maxZoom) {
+                            currentZoom = newZoom;
+                            updateImageTransform();
+                        }
+                    }
+                }
+            });
         });
     </script>
 </body>
