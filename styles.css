@@ -79,15 +79,17 @@
         }
 
         .btn-secondary {
-            background: transparent;
-            color: var(--primary-pink);
+            background: var(--primary-pink);
+            color: var(--white);
             border: 2px solid var(--primary-pink);
+            box-shadow: var(--glow);
         }
 
         .btn-secondary:hover {
-            background: var(--primary-pink);
-            color: var(--white);
-            box-shadow: var(--glow);
+            background: transparent;
+            color: var(--primary-pink);
+            border: 2px solid var(--primary-pink);
+            box-shadow: var(--shadow);
         }
 
         /* Header Styles */
