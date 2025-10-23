@@ -102,6 +102,19 @@
   }
   </script>
 
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID', {
+      page_title: 'Spark_Lights254 - Lighting Collections',
+      page_location: window.location.href,
+      send_page_view: true
+    });
+  </script>
+
   <!-- Styles -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -227,6 +240,25 @@
                 <button class="lightbox-btn" id="reset-zoom">
                     <i class="fas fa-expand-arrows-alt"></i>
                 </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exit Intent Popup -->
+    <div id="exit-intent-popup" class="exit-intent-popup">
+        <div class="exit-popup-content">
+            <span class="exit-popup-close">&times;</span>
+            <div class="exit-popup-header">
+                <h3>Wait! Don't Leave Yet! 🚀</h3>
+            </div>
+            <div class="exit-popup-body">
+                <p>Did you find the perfect lighting for your space?</p>
+                <p>We have many more amazing lighting solutions in our collection!</p>
+                <div class="exit-popup-buttons">
+                    <a href="index.html" class="btn btn-primary exit-btn" id="exit-view-home">Back to Home</a>
+                    <a href="https://wa.me/254712827840?text=Hi%20Spark_Lights254!%20I%20need%20help%20finding%20the%20perfect%20lighting%20for%20my%20space." class="btn btn-whatsapp exit-btn" id="exit-whatsapp">Get Help via WhatsApp</a>
+                </div>
+                <p class="exit-popup-footer">Or tell us what you're looking for and we'll help you find it!</p>
             </div>
         </div>
     </div>
@@ -765,6 +797,323 @@ Please confirm availability.`;
                     }
                 }
             });
+        });
+
+        // ===== COMPREHENSIVE TRACKING SYSTEM FOR COLLECTIONS =====
+        
+        // User Engagement Tracking
+        let userEngagement = {
+            pageLoadTime: Date.now(),
+            scrollDepth: 0,
+            clickCount: 0,
+            timeOnPage: 0,
+            interactions: [],
+            exitIntentTriggered: false,
+            productsViewed: [],
+            filtersUsed: [],
+            searchTerms: []
+        };
+
+        // Enhanced Google Analytics Tracking
+        function trackEvent(eventName, eventCategory, eventAction, eventLabel, value) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', eventName, {
+                    event_category: eventCategory,
+                    event_action: eventAction,
+                    event_label: eventLabel,
+                    value: value
+                });
+            }
+            console.log(`📊 Tracked: ${eventName} - ${eventCategory} - ${eventAction} - ${eventLabel}`);
+        }
+
+        // Product Interaction Tracking
+        function trackProductInteraction(productName, productId, action) {
+            trackEvent('product_interaction', 'products', action, productName, productId);
+            userEngagement.productsViewed.push({
+                name: productName,
+                id: productId,
+                action: action,
+                timestamp: Date.now()
+            });
+        }
+
+        // Filter and Search Tracking
+        function trackFilterUsage(filterType, filterValue) {
+            trackEvent('filter_usage', 'engagement', filterType, filterValue, 1);
+            userEngagement.filtersUsed.push({
+                type: filterType,
+                value: filterValue,
+                timestamp: Date.now()
+            });
+        }
+
+        // Click Tracking for All Interactive Elements
+        function setupClickTracking() {
+            // Track all button clicks
+            document.querySelectorAll('.btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    userEngagement.clickCount++;
+                    const buttonText = e.target.textContent.trim();
+                    const buttonClass = e.target.className;
+                    
+                    trackEvent('button_click', 'engagement', 'click', buttonText, userEngagement.clickCount);
+                    userEngagement.interactions.push({
+                        type: 'button_click',
+                        element: buttonText,
+                        class: buttonClass,
+                        timestamp: Date.now()
+                    });
+                });
+            });
+
+            // Track product card interactions
+            document.querySelectorAll('.product-card').forEach((card, index) => {
+                card.addEventListener('click', (e) => {
+                    const productName = card.querySelector('h3')?.textContent || 'Unknown Product';
+                    const productId = card.dataset.category || 'unknown';
+                    
+                    trackProductInteraction(productName, index + 1, 'view');
+                });
+            });
+
+            // Track WhatsApp button clicks
+            document.querySelectorAll('.btn-whatsapp, .whatsapp-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    trackEvent('whatsapp_click', 'conversion', 'click', 'whatsapp_contact', 1);
+                    userEngagement.interactions.push({
+                        type: 'whatsapp_click',
+                        timestamp: Date.now()
+                    });
+                });
+            });
+
+            // Track filter button clicks
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const filterValue = btn.getAttribute('data-filter');
+                    trackFilterUsage('category_filter', filterValue);
+                });
+            });
+
+            // Track search input
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    const searchTerm = e.target.value;
+                    if (searchTerm.length > 2) {
+                        trackEvent('search', 'engagement', 'input', searchTerm, 1);
+                        userEngagement.searchTerms.push({
+                            term: searchTerm,
+                            timestamp: Date.now()
+                        });
+                    }
+                });
+            }
+
+            // Track lightbox interactions
+            document.querySelectorAll('.product-img').forEach(img => {
+                img.addEventListener('click', (e) => {
+                    trackEvent('lightbox_open', 'engagement', 'click', 'product_image', 1);
+                });
+            });
+
+            // Track lightbox controls
+            document.querySelectorAll('.lightbox-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const action = btn.id;
+                    trackEvent('lightbox_control', 'engagement', 'click', action, 1);
+                });
+            });
+        }
+
+        // Scroll Depth Tracking
+        function setupScrollTracking() {
+            const scrollMilestones = [25, 50, 75, 90, 100];
+            const reachedMilestones = [];
+
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = Math.round((scrollTop / docHeight) * 100);
+                
+                userEngagement.scrollDepth = Math.max(userEngagement.scrollDepth, scrollPercent);
+                
+                // Track scroll milestones
+                scrollMilestones.forEach(milestone => {
+                    if (scrollPercent >= milestone && !reachedMilestones.includes(milestone)) {
+                        reachedMilestones.push(milestone);
+                        trackEvent('scroll_depth', 'engagement', 'scroll', `${milestone}%`, milestone);
+                    }
+                });
+            });
+        }
+
+        // Time on Page Tracking
+        function setupTimeTracking() {
+            setInterval(() => {
+                userEngagement.timeOnPage = Math.round((Date.now() - userEngagement.pageLoadTime) / 1000);
+                
+                // Track time milestones
+                const timeMilestones = [30, 60, 120, 300, 600];
+                timeMilestones.forEach(milestone => {
+                    if (userEngagement.timeOnPage === milestone) {
+                        trackEvent('time_on_page', 'engagement', 'duration', `${milestone}s`, milestone);
+                    }
+                });
+            }, 1000);
+        }
+
+        // Exit Intent Detection
+        function setupExitIntent() {
+            let exitIntentShown = false;
+            
+            document.addEventListener('mouseleave', (e) => {
+                if (e.clientY <= 0 && !exitIntentShown && userEngagement.timeOnPage > 10) {
+                    exitIntentShown = true;
+                    userEngagement.exitIntentTriggered = true;
+                    showExitIntentPopup();
+                    
+                    trackEvent('exit_intent', 'engagement', 'trigger', 'mouse_leave', 1);
+                }
+            });
+
+            window.addEventListener('beforeunload', (e) => {
+                if (!userEngagement.exitIntentTriggered && userEngagement.timeOnPage > 5) {
+                    trackEvent('page_exit', 'engagement', 'leave', 'before_unload', userEngagement.timeOnPage);
+                }
+            });
+        }
+
+        // Exit Intent Popup Functions
+        function showExitIntentPopup() {
+            const popup = document.getElementById('exit-intent-popup');
+            if (popup) {
+                popup.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                
+                trackEvent('exit_popup', 'engagement', 'show', 'exit_intent', 1);
+            }
+        }
+
+        function hideExitIntentPopup() {
+            const popup = document.getElementById('exit-intent-popup');
+            if (popup) {
+                popup.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Exit Intent Popup Event Listeners
+        function setupExitIntentPopup() {
+            const popup = document.getElementById('exit-intent-popup');
+            const closeBtn = document.querySelector('.exit-popup-close');
+            const viewHomeBtn = document.getElementById('exit-view-home');
+            const whatsappBtn = document.getElementById('exit-whatsapp');
+
+            if (closeBtn) {
+                closeBtn.addEventListener('click', () => {
+                    hideExitIntentPopup();
+                    trackEvent('exit_popup', 'engagement', 'close', 'close_button', 1);
+                });
+            }
+
+            if (viewHomeBtn) {
+                viewHomeBtn.addEventListener('click', () => {
+                    trackEvent('exit_popup', 'conversion', 'click', 'view_home', 1);
+                    hideExitIntentPopup();
+                });
+            }
+
+            if (whatsappBtn) {
+                whatsappBtn.addEventListener('click', () => {
+                    trackEvent('exit_popup', 'conversion', 'click', 'whatsapp_help', 1);
+                    hideExitIntentPopup();
+                });
+            }
+
+            if (popup) {
+                popup.addEventListener('click', (e) => {
+                    if (e.target === popup) {
+                        hideExitIntentPopup();
+                        trackEvent('exit_popup', 'engagement', 'close', 'outside_click', 1);
+                    }
+                });
+            }
+        }
+
+        // Enhanced User Behavior Tracking
+        function setupBehaviorTracking() {
+            // Track mouse movements
+            let mouseMovements = 0;
+            document.addEventListener('mousemove', () => {
+                mouseMovements++;
+                if (mouseMovements % 50 === 0) {
+                    trackEvent('mouse_movement', 'engagement', 'move', 'user_active', mouseMovements);
+                }
+            });
+
+            // Track keyboard interactions
+            document.addEventListener('keydown', (e) => {
+                trackEvent('keyboard_interaction', 'engagement', 'keypress', e.key, 1);
+            });
+
+            // Track window focus/blur
+            window.addEventListener('focus', () => {
+                trackEvent('window_focus', 'engagement', 'focus', 'window_active', 1);
+            });
+
+            window.addEventListener('blur', () => {
+                trackEvent('window_blur', 'engagement', 'blur', 'window_inactive', 1);
+            });
+        }
+
+        // Send comprehensive data to Google Analytics
+        function sendEngagementData() {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'user_engagement', {
+                    event_category: 'engagement',
+                    event_action: 'comprehensive_data',
+                    event_label: 'user_behavior',
+                    value: userEngagement.clickCount,
+                    custom_parameters: {
+                        scroll_depth: userEngagement.scrollDepth,
+                        time_on_page: userEngagement.timeOnPage,
+                        click_count: userEngagement.clickCount,
+                        interaction_count: userEngagement.interactions.length,
+                        products_viewed: userEngagement.productsViewed.length,
+                        filters_used: userEngagement.filtersUsed.length,
+                        search_terms: userEngagement.searchTerms.length,
+                        exit_intent_triggered: userEngagement.exitIntentTriggered
+                    }
+                });
+            }
+        }
+
+        // Initialize all tracking when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Initializing comprehensive tracking system for collections...');
+            
+            setupClickTracking();
+            setupScrollTracking();
+            setupTimeTracking();
+            setupExitIntent();
+            setupExitIntentPopup();
+            setupBehaviorTracking();
+            
+            // Send initial page view
+            trackEvent('page_view', 'navigation', 'view', 'collections_page', 1);
+            
+            // Send engagement data every 30 seconds
+            setInterval(sendEngagementData, 30000);
+            
+            // Send final engagement data when page unloads
+            window.addEventListener('beforeunload', () => {
+                sendEngagementData();
+                trackEvent('page_exit', 'engagement', 'final_data', 'comprehensive', userEngagement.timeOnPage);
+            });
+            
+            console.log('✅ Comprehensive tracking system initialized successfully for collections!');
         });
     </script>
 </body>
