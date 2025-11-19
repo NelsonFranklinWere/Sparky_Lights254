@@ -247,6 +247,43 @@
             border-color: var(--primary-pink);
         }
 
+        /* Top Products Section */
+        .top-products-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--light-pink), var(--white));
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-pink);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-pink), var(--warm-gold));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
         /* Collections Grid */
         .collections-section {
             padding: 80px 0;
