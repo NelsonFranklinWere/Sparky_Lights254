@@ -44,6 +44,17 @@
             padding: 0 15px;
         }
 
+        /* Hidden SEO Content - Visible to search engines but not to users */
+        .seo-hidden {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+        }
+
         .btn {
             display: inline-block;
             padding: 12px 30px;
