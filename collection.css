@@ -18,12 +18,32 @@
             box-sizing: border-box;
         }
 
+        /* Performance optimization - contain layout and paint */
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             color: var(--dark-gray);
             background-color: var(--white);
             overflow-x: hidden;
+            /* Performance: contain layout and paint */
+            contain: layout style;
+        }
+
+        /* Accessibility: Respect user's motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -35,6 +55,32 @@
         a {
             text-decoration: none;
             color: inherit;
+        }
+
+        /* Accessibility: Ensure focus states are visible */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        .btn:focus-visible {
+            outline: 3px solid var(--primary-pink);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        /* Accessibility: Skip link for keyboard users */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary-pink);
+            color: var(--white);
+            padding: 8px;
+            text-decoration: none;
+            z-index: 10001;
+        }
+
+        .skip-link:focus {
+            top: 0;
         }
 
         .container {
@@ -63,9 +109,18 @@
             font-weight: 500;
             text-align: center;
             cursor: pointer;
-            transition: var(--transition);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
             border: none;
             font-size: 0.9rem;
+            /* Accessibility: Ensure minimum touch target size (44x44px) */
+            min-height: 44px;
+            min-width: 44px;
+        }
+
+        /* Performance: Only use will-change when actively animating */
+        .btn:hover,
+        .btn:focus {
+            will-change: transform;
         }
 
         .btn-primary {
@@ -74,9 +129,14 @@
             box-shadow: var(--shadow);
         }
 
-        .btn-primary:hover {
+        .btn-primary:hover,
+        .btn-primary:focus {
             transform: translateY(-3px);
             box-shadow: var(--glow);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-1px);
         }
 
         .btn-whatsapp {
@@ -87,9 +147,14 @@
             font-size: 0.85rem;
         }
 
-        .btn-whatsapp:hover {
+        .btn-whatsapp:hover,
+        .btn-whatsapp:focus {
             transform: translateY(-3px);
             box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
+        }
+
+        .btn-whatsapp:active {
+            transform: translateY(-1px);
         }
 
         .btn-secondary {
@@ -98,7 +163,8 @@
             border: 2px solid var(--primary-pink);
         }
 
-        .btn-secondary:hover {
+        .btn-secondary:hover,
+        .btn-secondary:focus {
             background: var(--primary-pink);
             color: var(--white);
             box-shadow: var(--glow);
@@ -112,6 +178,11 @@
             width: 100%;
             top: 0;
             z-index: 1000;
+            /* Performance: contain layout and paint */
+            contain: layout style paint;
+            /* Performance: optimize scrolling */
+            transform: translateZ(0);
+            backface-visibility: hidden;
         }
 
         .navbar {
@@ -149,6 +220,10 @@
             font-weight: 500;
             position: relative;
             padding: 5px 0;
+            /* Accessibility: Ensure minimum touch target */
+            min-height: 44px;
+            display: flex;
+            align-items: center;
         }
 
         .nav-links a:after {
@@ -159,10 +234,11 @@
             bottom: 0;
             left: 0;
             background-color: var(--primary-pink);
-            transition: var(--transition);
+            transition: width 0.3s ease;
         }
 
-        .nav-links a:hover:after {
+        .nav-links a:hover:after,
+        .nav-links a:focus-visible:after {
             width: 100%;
         }
 
@@ -178,6 +254,18 @@
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
+            /* Accessibility: Ensure minimum touch target */
+            min-width: 44px;
+            min-height: 44px;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+        }
+
+        .mobile-menu:focus-visible {
+            outline: 3px solid var(--primary-pink);
+            outline-offset: 2px;
+            border-radius: 4px;
         }
 
         /* Collections Hero */
@@ -227,13 +315,25 @@
             border: 2px solid var(--soft-pink);
             background-color: var(--white);
             font-size: 1rem;
-            transition: var(--transition);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            /* Accessibility: Ensure minimum touch target */
+            min-height: 44px;
         }
 
         .search-box input:focus {
-            outline: none;
+            outline: 3px solid var(--primary-pink);
+            outline-offset: 2px;
             border-color: var(--primary-pink);
             box-shadow: var(--glow);
+        }
+
+        /* Accessibility: Ensure proper label association */
+        .search-box label {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
         }
 
         .filter-options {
@@ -249,14 +349,21 @@
             background-color: var(--white);
             color: var(--dark-gray);
             cursor: pointer;
-            transition: var(--transition);
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
             font-size: 0.9rem;
+            /* Accessibility: Ensure minimum touch target */
+            min-height: 44px;
+            min-width: 44px;
         }
 
-        .filter-btn.active, .filter-btn:hover {
+        .filter-btn.active,
+        .filter-btn:hover,
+        .filter-btn:focus {
             background-color: var(--primary-pink);
             color: var(--white);
             border-color: var(--primary-pink);
+            outline: 3px solid var(--primary-pink);
+            outline-offset: 2px;
         }
 
         /* Top Products Section */
@@ -306,6 +413,14 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 30px;
+            /* Performance: Use content-visibility for large grids */
+            content-visibility: auto;
+            contain-intrinsic-size: 400px;
+        }
+
+        /* Performance: Optimize product cards in grid */
+        .collections-grid .product-card {
+            content-visibility: auto;
         }
 
         .product-card {
@@ -313,13 +428,26 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: var(--shadow);
-            transition: var(--transition);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
+            /* Performance: contain layout and paint for better rendering */
+            contain: layout style paint;
+        }
+
+        /* Performance: Only use will-change when actively hovering */
+        .product-card:hover,
+        .product-card:focus-within {
+            will-change: transform;
         }
 
         .product-card:hover {
             transform: translateY(-10px);
             box-shadow: var(--glow);
+        }
+
+        .product-card:focus-within {
+            outline: 3px solid var(--primary-pink);
+            outline-offset: 2px;
         }
 
         .product-img {
@@ -329,6 +457,12 @@
             background-size: cover;
             background-position: center;
             position: relative;
+            /* Performance: optimize image rendering */
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            /* Performance: GPU acceleration for transforms */
+            transform: translateZ(0);
+            backface-visibility: hidden;
         }
 
         /* Responsive rules removed to restore original small-screen image appearance */
@@ -457,13 +591,33 @@
             color: white;
             font-size: 1.8rem;
             box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-            transition: var(--transition);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             animation: pulse 2s infinite;
+            /* Accessibility: Ensure minimum touch target */
+            min-width: 44px;
+            min-height: 44px;
+            /* Performance: GPU acceleration */
+            transform: translateZ(0);
         }
 
-        .whatsapp-btn:hover {
+        .whatsapp-btn:hover,
+        .whatsapp-btn:focus {
+            will-change: transform;
+        }
+
+        .whatsapp-btn:hover,
+        .whatsapp-btn:focus {
             transform: scale(1.1);
             box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+            outline: 3px solid #25D366;
+            outline-offset: 2px;
+        }
+
+        /* Respect reduced motion preference for animations */
+        @media (prefers-reduced-motion: reduce) {
+            .whatsapp-btn {
+                animation: none;
+            }
         }
 
         .whatsapp-tooltip {
@@ -490,6 +644,7 @@
             transform: translateY(0);
         } */
 
+        /* Performance: Optimized animation using transform and opacity */
         @keyframes pulse {
             0% {
                 box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
@@ -499,6 +654,15 @@
             }
             100% {
                 box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* Respect reduced motion for all animations */
+        @media (prefers-reduced-motion: reduce) {
+            @keyframes pulse {
+                0%, 100% {
+                    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+                }
             }
         }
 
@@ -548,7 +712,7 @@
             }
             
             .mobile-menu {
-                display: block;
+                display: flex;
             }
             
             .collections-hero {
@@ -684,12 +848,23 @@
             background-color: rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(5px);
             animation: fadeIn 0.3s ease;
+            /* Accessibility: Ensure modal is accessible */
+            overflow-y: auto;
+            /* Performance: GPU acceleration */
+            transform: translateZ(0);
         }
 
+        /* Accessibility: Focus trap for modal */
+        .lightbox-modal:focus-within {
+            outline: none;
+        }
+
+        /* Performance: Only use will-change when modal is showing */
         .lightbox-modal.show {
             display: flex;
             align-items: center;
             justify-content: center;
+            will-change: opacity;
         }
 
         .lightbox-content {
@@ -710,12 +885,23 @@
             font-weight: bold;
             cursor: pointer;
             z-index: 10000;
-            transition: var(--transition);
+            transition: color 0.2s ease, transform 0.2s ease;
+            /* Accessibility: Ensure minimum touch target */
+            min-width: 44px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
         }
 
-        .lightbox-close:hover {
+        .lightbox-close:hover,
+        .lightbox-close:focus {
             color: var(--primary-pink);
             transform: scale(1.1);
+            outline: 3px solid var(--primary-pink);
+            outline-offset: 2px;
+            border-radius: 4px;
         }
 
         .lightbox-image-container {
@@ -753,33 +939,48 @@
             padding: 10px 15px;
             border-radius: 50px;
             cursor: pointer;
-            transition: var(--transition);
+            transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
             backdrop-filter: blur(10px);
+            /* Accessibility: Ensure minimum touch target */
+            min-width: 44px;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .lightbox-btn:hover {
+        .lightbox-btn:hover,
+        .lightbox-btn:focus {
             background: var(--primary-pink);
             border-color: var(--primary-pink);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(255, 77, 141, 0.4);
+            outline: 3px solid var(--primary-pink);
+            outline-offset: 2px;
         }
 
         .lightbox-btn i {
             font-size: 1.2rem;
         }
 
-        /* Product image clickable */
+        /* Product image clickable - Performance optimized */
         .product-img {
             cursor: pointer;
-            transition: var(--transition);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Performance: GPU acceleration */
+            transform: translateZ(0);
         }
 
-        .product-img:hover {
+        .product-img:hover,
+        .product-img:focus {
+            will-change: transform;
             transform: scale(1.05);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            outline: 3px solid var(--primary-pink);
+            outline-offset: 2px;
         }
 
-        /* Animations */
+        /* Animations - Performance optimized */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -790,8 +991,30 @@
             to { transform: scale(1); opacity: 1; }
         }
 
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
         .lightbox-modal.show .lightbox-content {
             animation: zoomIn 0.3s ease;
+        }
+
+        /* Respect reduced motion for all animations */
+        @media (prefers-reduced-motion: reduce) {
+            .lightbox-modal.show .lightbox-content {
+                animation: fadeIn 0.1s ease;
+            }
+            
+            .exit-popup-content {
+                animation: fadeIn 0.1s ease;
+            }
         }
 
         /* Mobile responsiveness for lightbox */
@@ -859,12 +1082,23 @@
             font-size: 1.5rem;
             cursor: pointer;
             color: var(--dark-gray);
-            transition: var(--transition);
+            transition: color 0.2s ease, transform 0.2s ease;
+            /* Accessibility: Ensure minimum touch target */
+            min-width: 44px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
         }
 
-        .exit-popup-close:hover {
+        .exit-popup-close:hover,
+        .exit-popup-close:focus {
             color: var(--primary-pink);
             transform: scale(1.1);
+            outline: 3px solid var(--primary-pink);
+            outline-offset: 2px;
+            border-radius: 4px;
         }
 
         .exit-popup-header h3 {
